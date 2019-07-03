@@ -7,19 +7,22 @@ Blue POT is an open-source Bluetooth telephone "central office" that works with 
 2. [Silvertel AG1171 SLIC](https://www.silvertel.com/telecom/271-ag1171.html) (Subscriber Line Interface Circuit) providing bias and ring voltages, hook detection and audio interface to the telephone line.  Available at [Symmetry Electronics](https://www.semiconductorstore.com/cart/pc/viewPrd.asp?idproduct=13904).
 3. [PJRC Teensy 3.2](https://www.pjrc.com/store/teensy32.html) controller providing system control, DTMF and Rotary dialing decoding and telephone tone (dial-tone, busy and reciever off-hook) generation.  Code is developed and loaded using the Arduino environment with the PJRC Teensy extensions (including the [Audio Library](https://www.pjrc.com/teensy/td_libs_Audio.html) used for tone generation and DTMF decoding).
 
+
+Additional information about the design is documented at [hackaday.io](https://hackaday.io/project/166359-blue-pot).
+
 ## Repository Contents
 This repository contains the code, hardware design, documentation and supporting files to enable someone to make their own Blue POT.
 
-* The ```bm64``` directory contains a zip file containing the software that runs on a Windows PC and the configuration file that must be loaded into the BM64 module to work in Blue POT.  See the section "BM64 Configuration" below.
+* The ```bm64``` directory contains a zip file containing the software that runs on a Windows PC and the configuration file that must be loaded into the BM64 module for it to work with Blue POT.  See the section "BM64 Configuration" below.
 * The ```code``` directory contains the Teensy 3.2 sketches.
 * The ```docs``` directory contains specifications and datasheets for the modules used in the design.
 * The ```eagle``` directory contains the hardware design.
-* The ```pictures``` directory contains the images used by this readme as well as other useful images. 
+* The ```pictures``` directory contains the pictures used by this readme as well as other useful images. 
 
 ## Blue POT Prototype
 ![Blue POT Prototype board](pictures/blue_pot_board.png)
 
-The hand-wired Blue POT prototype is a design/test platform.  Its schematic is ```eagle/blue_pot_proto_schem.pdf```.  It runs the ```code/blue_pot_proto``` sketch with the following functionality.
+The hand-wired Blue POT prototype is my design/test platform.  Its schematic is ```eagle/blue_pot_proto_schem.pdf```.  It runs the ```code/blue_pot_proto``` sketch with the following functionality.
 
 * Up to 8 Bluetooth pairings
 * Support for 10-digit dialing using DTMF or Rotary
@@ -32,9 +35,9 @@ The hand-wired Blue POT prototype is a design/test platform.  Its schematic is `
 * Automatically connect to a cellphone when available
 * Simple serial command interface
 
-The prototype is completely functional with the limitation that it only supports 10-digit dialing.  It also has a slight problem with noise from the Bluetooth module being coupled back into the audio when the module is far from the phone and increases its RF output power.
+The prototype is completely functional with the limitation that it only supports 10-digit dialing.  It also has a slight problem with noise from the Bluetooth module being coupled back into the audio when the module is far from the phone and increases its RF output power.  I use the higher power Class 1 module (+15 dBm typ output power).
 
-The BM64 module was connected deadbug style as shown below.
+The BM64 module is connected deadbug style as shown below.
 ![BM64 dead bug](pictures/bm64_wiring_diagram.png)
 
 ### Bluetooth Pairing with a cellphone
@@ -76,7 +79,7 @@ After the write finishes, remove the jumper and power cycle the Blue POT.  If yo
 
 2. The AG1171 SLIC module and supporting protective circuitry is designed to support lines of up to about 1000 feet inside a premise (e.g. inside the home).  It provides protection for ESD/EMI but not for lighting strikes.  Do not omit including the protection circuitry from your build as the AG1171 can be damaged.  Make sure that the telephone wiring is disconnected from outside lines (e.g. the lines that originally connected to the central office).  Silvertel has a document describing additional protection circuitry necessary for driving longer/outside lines.
 
-3. Power to the system may be provided using a 5V USB Adaptor capable of providing more than 500 mA (or host computer) connected to the Teensy Micro-USB port.  However the Teensy protective PTC (thermal fuse) must be bypassed because it will trip from the inrush current for the AG1171 3.3V power supply.  It may be removed and a wire soldered across the pads or a wire carefully soldered the PTC terminals.  Alternatively you can supply power to the system via the Teensy VIN pin or VUSB pad.
+3. Power to the system may be provided using a 5V USB Adaptor capable of providing more than 500 mA (or host computer) connected to the Teensy Micro-USB port.  However the Teensy protective PTC (thermal fuse) must be bypassed because it will trip from the inrush current for the AG1171 3.3V power supply.  It may be removed and a wire soldered across the pads or a wire carefully soldered across the PTC terminals.  Alternatively you can supply power to the system via the Teensy VIN pin or VUSB pad.
 
 ![Teensy 3.2 Modification](pictures/teensy32_mod.png)
 
