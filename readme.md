@@ -71,11 +71,13 @@ After the write finishes, remove the jumper and power cycle the Blue POT.  If yo
 1. Additional information I found useful while working on this project:
 
 	* Jean Wlodarski's great [Vintage Bluetooth Headphone](https://pickandplace.wordpress.com/) conversion using the BM64 module.
+	* Anders Nelson's [Bluetooth to POTs adapter](https://www.andersknelson.com/blog/?p=187).
 	* The Tech-FAQ [Telephone Tone Frequencies](http://www.tech-faq.com/frequencies-of-the-telephone-tones.html) table.
 	* Joe Randolph's [articles about Telephone line interfaces](http://www.randolph-telecom.com/articles-faq.html).
 	* An epanorama.net [article about ringing voltages](http://www.epanorama.net/circuits/telephone_ringer.html).
 	* This [blog post about driving the AG1171](https://blog.goo.ne.jp/sirius506/c/d1add04588c82beebd42a3e12ac16b15).
 	* Cisco's article about [Voice Network Signaling and Control](https://www.cisco.com/c/en/us/support/docs/voice/digital-cas/14007-net-signal-control.html).
+	* A great collection of telephone history [links](https://www.mhelpdesk.com/history-of-telephone-communication/).
 
 2. The AG1171 SLIC module and supporting protective circuitry is designed to support lines of up to about 1000 feet inside a premise (e.g. inside the home).  It provides protection for ESD/EMI but not for lighting strikes.  Do not omit including the protection circuitry from your build as the AG1171 can be damaged.  Make sure that the telephone wiring is disconnected from outside lines (e.g. the lines that originally connected to the central office).  Silvertel has a document describing additional protection circuitry necessary for driving longer/outside lines.
 
