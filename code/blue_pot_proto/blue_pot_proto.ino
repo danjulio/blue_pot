@@ -111,6 +111,7 @@ void setup() {
   delay(500);
   if (digitalRead(PIN_FUNC) == LOW) {
     // Update mode
+    _btInitPins();
     _btSetMode(1);  // SetMode(3) for entry into firmware update
     _btDoReset(true);
     transparentMode = true;
@@ -341,4 +342,3 @@ void eepInit() {
 
   Serial.printf("pairID = %d\n", pairID);
 }
-
