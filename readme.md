@@ -60,7 +60,7 @@ A full description of the process of running the various PC utilities is describ
 1. Copy the ```bin/bluePOT.ipf``` and ```bin/IS2064_BM64 Software & Tools.zip``` files to your PC and unzip the tools into a temporary directory.
 2. Unzip and run the EEPROM Tool utility (```EEPROM_Tool_V4851.exe```).
 3. Insert the jumper connecting Teensy D23 to ground and then plug the Blue POT into your PC via the Teensy's USB connector.  Be sure the jumper is installed before connecting the USB.
-4. Follow the directions in the ```50002514B.pdf``` evaluation board guide starting in section 3.5 on page 50 to load the ```bluePOT.ipf``` file into your BM64 module with the following caveats.
+4. Follow the directions in the ```50002514B.pdf``` evaluation board guide starting in section 3.5, step 3 on page 52 to load the ```bluePOT.ipf``` file into your BM64 module with the following caveats.
 
 	* Figure 3-31 does not apply.  The firmware will automatically place the BM64 module into the appropriate mode.
 	* Replace the file described in Figure 3-35 with ```bluePOT.ipf``` at the location you stored it.
